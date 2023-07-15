@@ -1,7 +1,14 @@
+import Form from "./components/userForm/Form";
+
 function App() {
   return (
     <>
-      <h1 className="bg-blue-500">CV Generator</h1>
+      <main className="m-5">
+        <h1 className="m-3 text-center text-xl font-medium text-slate-100">
+          CV Generator
+        </h1>
+        <Form />
+      </main>
     </>
   );
 }
