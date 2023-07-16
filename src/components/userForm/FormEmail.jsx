@@ -1,4 +1,14 @@
-function FormName() {
+import PropTypes from "prop-types";
+
+FormEmail.propTypes = {
+  setEmail: PropTypes.func.isRequired,
+};
+
+function FormEmail({ setEmail }) {
+  function handleEmail(e) {
+    setEmail(e.target.value);
+  }
+
   return (
     <div className="flex flex-col">
       <label htmlFor="email" className="p-1 font-medium">
@@ -9,9 +19,10 @@ function FormName() {
         name="email"
         id="email"
         className="m-1 p-1 font-medium border-2 border-slate-700"
+        onChange={handleEmail}
       />
     </div>
   );
 }
 
-export default FormName;
+export default FormEmail;
