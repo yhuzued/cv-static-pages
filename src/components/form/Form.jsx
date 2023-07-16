@@ -26,15 +26,20 @@ export default function Form({
 }) {
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (name === "" || email === "" || phone === "") {
+      return;
+    }
+
     setPerson({ name, email, phone });
   }
 
   return (
     <>
       <form
+        className="flex flex-col"
         method="get"
         action="/"
-        className="bg-white p-3 rounded-md drop-shado-md flex flex-col"
         onSubmit={handleSubmit}
       >
         <FormName setName={setName} />
