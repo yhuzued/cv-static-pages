@@ -9,7 +9,7 @@ Header.propTypes = {
 
 function Header({ person }) {
   const [isDescEdited, setDescEdited] = useState(false);
-  const [desc, setDesc] = useState("I'm Yusuf");
+  const [desc, setDesc] = useState("I'm John");
 
   const decideContent = () => {
     if (isDescEdited === true) {
