@@ -1,15 +1,16 @@
-import Form from "./components/userForm/Form";
-import { useEffect, useState } from "react";
+import Form from "./components/form/Form";
+import Header from "./components/header/Header";
+import { useState } from "react";
 
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [person, setPerson] = useState({});
-
-  useEffect(() => {
-    console.log(person);
-  }, [person]);
+  const [person, setPerson] = useState({
+    name: "John Doe",
+    email: "JohnDoe@gmail.com",
+    phone: "087465875456",
+  });
 
   function isEmpty(obj) {
     return Object.keys(obj).length === 0;
@@ -37,7 +38,10 @@ function App() {
         <h1 className="m-3 text-center text-xl font-medium text-slate-100">
           CV Generator
         </h1>
-        {form()}
+        <section className="p-8 bg-white p-3 rounded-md drop-shado-md flex flex-col">
+          {form()}
+          <Header person={person} />
+        </section>
       </main>
     </>
   );
