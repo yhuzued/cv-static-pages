@@ -34,8 +34,23 @@ function Header({ person }) {
   };
 
   return (
-    <div className="border-b-2">
+    <div className="flex flex-col gap-2">
       <h1 className="text-3xl py-1 font-medium">{person.name}</h1>
+      <h2 className="text-xl py-1">{person.profession}</h2>
+      <p className="flex gap-2">
+        <span className="font-bold">Address</span>
+        <span>
+          {person.city}, {person.country} {person.postal}
+        </span>
+      </p>
+      <p className="flex gap-2">
+        <span className="font-bold">Phone</span>
+        <span>{person.phone}</span>
+      </p>
+      <p className="flex gap-2">
+        <span className="font-bold">Email</span>
+        <span>{person.email}</span>
+      </p>
       {decideContent()}
     </div>
   );
