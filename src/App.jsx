@@ -6,11 +6,11 @@ function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [person, setPerson] = useState({
-    name: "John Doe",
-    email: "JohnDoe@gmail.com",
-    phone: "087465875456",
-  });
+  const [city, setCity] = useState("");
+  const [postal, setPostal] = useState("");
+  const [country, setCountry] = useState("");
+  const [profession, setProfession] = useState("");
+  const [person, setPerson] = useState({});
 
   function isEmpty(obj) {
     return Object.keys(obj).length === 0;
@@ -23,10 +23,18 @@ function App() {
           name={name}
           email={email}
           phone={phone}
+          profession={profession}
+          city={city}
+          country={country}
+          postal={postal}
           setPerson={setPerson}
           setName={setName}
           setEmail={setEmail}
           setPhone={setPhone}
+          setProfession={setProfession}
+          setCity={setCity}
+          setCountry={setCountry}
+          setPostal={setPostal}
         />
       );
     }

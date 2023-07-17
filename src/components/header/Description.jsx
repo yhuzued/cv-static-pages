@@ -14,6 +14,7 @@ function Description({ desc, setDescEdited }) {
       >
         Edit
       </button>
+      <h2>Professional Summary</h2>
       <p className="py-1">{desc}</p>
     </div>
   );

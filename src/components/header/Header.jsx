@@ -8,8 +8,10 @@ Header.propTypes = {
 };
 
 function Header({ person }) {
+  const placeholder =
+    "Motivated Sales Associate with 5 years of experience boosting sales and customer loyalty through individualized service. Resourceful expert at learning customer needs, directing to desirable merchandise and upselling to meet sales quotas. Committed to strengthening customer experiences with positivity and professionalism when answering requests and processing sales.";
   const [isDescEdited, setDescEdited] = useState(false);
-  const [desc, setDesc] = useState("I'm John");
+  const [desc, setDesc] = useState(placeholder);
 
   const decideContent = () => {
     if (isDescEdited === true) {
@@ -34,7 +36,6 @@ function Header({ person }) {
   return (
     <div className="border-b-2">
       <h1 className="text-3xl py-1 font-medium">{person.name}</h1>
-      <h2 className="py-1 mb-1">Profession</h2>
       {decideContent()}
     </div>
   );
