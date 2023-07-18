@@ -2,6 +2,8 @@ import Form from "./components/form/Form";
 import Header from "./components/header/Header";
 import { useState } from "react";
 import Skills from "./components/skills/Skills";
+import Experience from "./components/experience/Experience";
+import FormExperience from "./components/experience/FormExperience";
 
 function App() {
   const [name, setName] = useState("");
@@ -51,6 +53,9 @@ function App() {
           {form()}
           <Header person={person} />
           <Skills />
+          <Experience>
+            <FormExperience />
+          </Experience>
         </section>
       </main>
     </>
