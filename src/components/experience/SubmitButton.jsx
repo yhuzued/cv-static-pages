@@ -1,4 +1,16 @@
-export default function SubmitButton() {
+import PropTypes from "prop-types";
+
+FormExperience.propTypes = {
+  showForm: PropTypes.bool,
+  setShow: PropTypes.func,
+};
+
+export default function FormExperience({ showForm, setShow }) {
+  function close(e) {
+    e.preventDefault();
+    setShow(!showForm);
+  }
+
   return (
     <div className="mt-3 flex gap-1">
       <button

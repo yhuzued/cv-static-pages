@@ -1,4 +1,12 @@
-export default function FormExperience() {
+import SubmitButton from "./SubmitButton";
+import PropTypes from "prop-types";
+
+FormExperience.propTypes = {
+  showForm: PropTypes.bool,
+  setShow: PropTypes.func,
+};
+
+export default function FormExperience({ showForm, setShow }) {
   return (
     <form onSubmit={console.log("submit")} className="my-5">
       <div className="grid grid-cols-2 gap-3">
@@ -57,6 +65,7 @@ export default function FormExperience() {
           />
         </div>
       </div>
+      <SubmitButton showForm={showForm} setShow={setShow} />
     </form>
   );
 }
