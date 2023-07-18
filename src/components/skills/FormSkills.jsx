@@ -28,9 +28,9 @@ export default function FormSkills({ skill, setList, setSkill, setShowForm }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-3 items-center mt-2">
+    <form onSubmit={handleSubmit} className="my-5">
       <input
-        className="outline-none border-2 w-1/3 p-2 rounded-sm border-slate-500"
+        className="outline-none border-2 md:w-1/3 p-2 rounded-sm border-slate-500"
         type="text"
         name="skills"
         id="skills"
@@ -38,18 +38,20 @@ export default function FormSkills({ skill, setList, setSkill, setShowForm }) {
         onChange={(e) => setSkill({ title: e.target.value })}
         autoFocus
       />
-      <button
-        type="submit"
-        className="bg-teal-700 text-slate-100 px-2 py-1 hover:bg-teal-500"
-      >
-        Save
-      </button>
-      <button
-        className="bg-red-700 text-slate-100 px-2 py-1 hover:bg-red-500"
-        onClick={close}
-      >
-        Close
-      </button>
+      <div className="my-3 flex gap-1">
+        <button
+          type="submit"
+          className="bg-teal-700 text-slate-100 px-2 py-1 hover:bg-teal-500"
+        >
+          Save
+        </button>
+        <button
+          className="bg-red-700 text-slate-100 px-2 py-1 hover:bg-red-500"
+          onClick={close}
+        >
+          Close
+        </button>
+      </div>
     </form>
   );
 }
