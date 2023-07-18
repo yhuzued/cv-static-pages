@@ -1,6 +1,7 @@
 import Form from "./components/form/Form";
 import Header from "./components/header/Header";
 import { useState } from "react";
+import Skills from "./components/skills/Skills";
 
 function App() {
   const [name, setName] = useState("");
@@ -49,6 +50,7 @@ function App() {
         <section className="p-8 bg-white p-3 rounded-md drop-shado-md flex flex-col">
           {form()}
           <Header person={person} />
+          <Skills />
         </section>
       </main>
     </>
