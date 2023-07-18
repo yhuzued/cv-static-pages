@@ -2,37 +2,54 @@ import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 
 FormSkills.propTypes = {
-  list: PropTypes.array.isRequired,
   skill: PropTypes.object.isRequired,
   setList: PropTypes.func.isRequired,
   setSkill: PropTypes.func.isRequired,
+  setShowForm: PropTypes.func.isRequired,
 };
 
-export default function FormSkills({ list, skill, setList, setSkill }) {
-  function handeleSubmit(e) {
+export default function FormSkills({ skill, setList, setSkill, setShowForm }) {
+  function handleSubmit(e) {
     e.preventDefault();
 
-    if (e.target.value === "") return;
+    if (Object.keys(skill).length === 0) return;
 
-    setList([...list, skill]);
+    const updatedSkill = { ...skill, id: uuidv4() };
+    setSkill(updatedSkill);
+    setList((prevList) => [...prevList, updatedSkill]);
+
     e.target.reset();
+    setSkill({});
   }
 
-  function handleInput(e) {
-    setSkill({ id: uuidv4(), title: e.target.value });
+  function close(e) {
+    e.preventDefault();
+    setShowForm(false);
   }
 
   return (
-    <form onSubmit={handeleSubmit}>
+    <form onSubmit={handleSubmit} className="flex gap-3 items-center mt-2">
       <input
+        className="outline-none border-2 w-1/3 p-2 rounded-sm border-slate-500"
         type="text"
         name="skills"
         id="skills"
         placeholder="Write your skill here..."
-        onChange={handleInput}
+        onChange={(e) => setSkill({ title: e.target.value })}
         autoFocus
       />
-      <button type="submit">Save</button>
+      <button
+        type="submit"
+        className="bg-teal-700 text-slate-100 px-2 py-1 hover:bg-teal-500"
+      >
+        Save
+      </button>
+      <button
+        className="bg-red-700 text-slate-100 px-2 py-1 hover:bg-red-500"
+        onClick={close}
+      >
+        Close
+      </button>
     </form>
   );
 }
