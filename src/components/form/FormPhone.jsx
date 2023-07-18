@@ -19,6 +19,8 @@ function FormPhone({ setPhone }) {
         name="phone"
         id="phone"
         className="m-1 p-1 font-medium border-2 border-slate-700"
+        placeholder="+62 812 3456 7890"
+        required
         onChange={handlePhone}
       />
     </div>

@@ -50,7 +50,7 @@ function App() {
         <h1 className="m-3 text-center text-xl font-medium text-slate-100">
           CV Generator
         </h1>
-        <section className="p-8 bg-white p-3 rounded-md drop-shado-md flex flex-col">
+        <section className="p-8 bg-white p-3 rounded-md drop-shado-md">
           {form()}
           <Header person={person} />
           <Skills />

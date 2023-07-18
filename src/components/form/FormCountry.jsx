@@ -18,8 +18,10 @@ function FromCountry({ setCountry }) {
         type="text"
         name="country"
         id="country"
+        placeholder="Indonesia"
         className="m-1 p-1 font-medium border-2 border-slate-700"
         minLength={5}
+        required
         onChange={handleCountry}
       />
     </div>

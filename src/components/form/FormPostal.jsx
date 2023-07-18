@@ -20,6 +20,8 @@ function FormPostal({ setPostal }) {
         id="postal"
         className="m-1 p-1 font-medium border-2 border-slate-700"
         minLength={5}
+        placeholder="17865"
+        required
         onChange={handlePostal}
       />
     </div>

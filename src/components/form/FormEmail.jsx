@@ -18,7 +18,9 @@ function FormEmail({ setEmail }) {
         type="email"
         name="email"
         id="email"
+        placeholder="john@doe.com"
         className="m-1 p-1 font-medium border-2 border-slate-700"
+        required
         onChange={handleEmail}
       />
     </div>

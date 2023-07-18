@@ -20,6 +20,8 @@ function FormProfession({ setProfession }) {
         id="profession"
         className="m-1 p-1 font-medium border-2 border-slate-700"
         minLength={5}
+        placeholder="Sr. Accountant"
+        required
         onChange={handleProfession}
       />
     </div>

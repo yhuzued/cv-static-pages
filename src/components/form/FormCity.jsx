@@ -18,9 +18,11 @@ function FormCity({ setCity }) {
         type="text"
         name="city"
         id="city"
+        placeholder="DKI Jakarta"
         className="m-1 p-1 font-medium border-2 border-slate-700"
         minLength={5}
         onChange={handleCity}
+        required
       />
     </div>
   );

@@ -56,20 +56,25 @@ export default function Form({
 
   return (
     <>
-      <form
-        className="flex flex-col"
-        method="get"
-        action="/"
-        onSubmit={handleSubmit}
-      >
-        <FormName setName={setName} />
-        <FormProfession setProfession={setProfession} />
-        <FormEmail setEmail={setEmail} />
-        <FormCity setCity={setCity} />
-        <FormCountry setCountry={setCountry} />
-        <FormPhone setPhone={setPhone} />
-        <FormPostal setPostal={setPostal} />
-        <CreateButton />
+      <form method="get" action="/" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-2">
+          <div className="col-grid-1">
+            <FormName setName={setName} />
+            <FormProfession setProfession={setProfession} />
+          </div>
+
+          <div className="col-grid-1">
+            <FormEmail setEmail={setEmail} />
+            <FormPhone setPhone={setPhone} />
+          </div>
+
+          <div className="col-span-2">
+            <FormCity setCity={setCity} />
+            <FormCountry setCountry={setCountry} />
+            <FormPostal setPostal={setPostal} />
+            <CreateButton />
+          </div>
+        </div>
       </form>
     </>
   );
