@@ -36,7 +36,7 @@ export default function Items({ list, setList }) {
 
   return (
     <>
-      <ul className="list-disc m-5 ml-[10vw]">{skills}</ul>
+      <ul className="list-disc ml-12 mt-3">{skills}</ul>
     </>
   );
 }
