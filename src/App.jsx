@@ -4,6 +4,7 @@ import { useState } from "react";
 import Skills from "./components/skills/Skills";
 import Experience from "./components/experience/Experience";
 import FormExperience from "./components/experience/FormExperience";
+import SubmitButton from "./components/experience/SubmitButton";
 
 function App() {
   const [name, setName] = useState("");
@@ -55,6 +56,7 @@ function App() {
           <Skills />
           <Experience>
             <FormExperience />
+            <SubmitButton />
           </Experience>
         </section>
       </main>
