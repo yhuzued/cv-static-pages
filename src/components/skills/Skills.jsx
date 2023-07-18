@@ -28,7 +28,7 @@ export default function Skills() {
         <AddButton setShowForm={setShowForm} />
       </Title>
       {form()}
-      <Items list={list} />
+      <Items list={list} setList={setList} />
     </>
   );
 }
