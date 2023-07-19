@@ -1,14 +1,70 @@
-import SubmitButton from "./SubmitButton";
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
+import SubmitButton from "./SubmitButton";
 
 FormExperience.propTypes = {
   showForm: PropTypes.bool,
   setShow: PropTypes.func,
+  setJobTitle: PropTypes.func,
+  setEmployer: PropTypes.func,
+  setCity: PropTypes.func,
+  setCountry: PropTypes.func,
+  setStartDate: PropTypes.func,
+  setEndDate: PropTypes.func,
+  experience: PropTypes.object,
+  setExperience: PropTypes.func,
+  jobTitle: PropTypes.string,
+  employer: PropTypes.string,
+  city: PropTypes.string,
+  country: PropTypes.string,
+  startDate: PropTypes.string,
+  endDate: PropTypes.string,
+  list: PropTypes.array,
+  setList: PropTypes.func,
 };
 
-export default function FormExperience({ showForm, setShow }) {
+export default function FormExperience({
+  showForm,
+  jobTitle,
+  employer,
+  city,
+  country,
+  startDate,
+  endDate,
+  setShow,
+  setJobTitle,
+  setEmployer,
+  setCity,
+  setCountry,
+  setStartDate,
+  setEndDate,
+  experience,
+  setExperience,
+  list,
+  setList,
+}) {
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const newExperience = {
+      ...experience,
+      id: uuidv4(),
+      city,
+      country,
+      employer,
+      endDate,
+      jobTitle,
+      startDate,
+    };
+
+    setExperience(newExperience);
+    setList([...list, experience]);
+
+    console.log(list);
+  }
+
   return (
-    <form onSubmit={console.log("submit")} className="my-5">
+    <form onSubmit={handleSubmit} className="my-5">
       <div className="grid grid-cols-2 gap-3">
         <div className="flex flex-col">
           <label htmlFor="job">Job Title</label>
@@ -18,6 +74,7 @@ export default function FormExperience({ showForm, setShow }) {
             name="job"
             id="job"
             placeholder="Sr. Accountant"
+            onChange={(e) => setJobTitle(e.target.value)}
           />
           <label htmlFor="employer">Employer</label>
           <input
@@ -26,6 +83,7 @@ export default function FormExperience({ showForm, setShow }) {
             name="employer"
             id="employer"
             placeholder="Monster Inc."
+            onChange={(e) => setEmployer(e.target.value)}
           />
         </div>
 
@@ -37,6 +95,7 @@ export default function FormExperience({ showForm, setShow }) {
             name="cityProvince"
             id="cityProvince"
             placeholder="DKI Jakarta"
+            onChange={(e) => setCity(e.target.value)}
           />
           <label htmlFor="country">Country</label>
           <input
@@ -45,6 +104,7 @@ export default function FormExperience({ showForm, setShow }) {
             name="country"
             id="country"
             placeholder="Indonesia"
+            onChange={(e) => setCountry(e.target.value)}
           />
         </div>
 
@@ -55,6 +115,7 @@ export default function FormExperience({ showForm, setShow }) {
             type="month"
             name="startDate"
             id="startDate"
+            onChange={(e) => setStartDate(e.target.value)}
           />
           <label htmlFor="endDate">End Date</label>
           <input
@@ -62,6 +123,7 @@ export default function FormExperience({ showForm, setShow }) {
             type="month"
             name="endDate"
             id="endDate"
+            onChange={(e) => setEndDate(e.target.value)}
           />
         </div>
       </div>
