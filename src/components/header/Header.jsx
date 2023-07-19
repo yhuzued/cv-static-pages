@@ -1,7 +1,8 @@
+import { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import PropTypes from "prop-types";
 import Description from "./Description";
 import TextArea from "./TextArea";
-import { useState } from "react";
 
 Header.propTypes = {
   person: PropTypes.object.isRequired,
@@ -12,6 +13,7 @@ function Header({ person }) {
     "Motivated Sales Associate with 5 years of experience boosting sales and customer loyalty through individualized service. Resourceful expert at learning customer needs, directing to desirable merchandise and upselling to meet sales quotas. Committed to strengthening customer experiences with positivity and professionalism when answering requests and processing sales.";
   const [isDescEdited, setDescEdited] = useState(false);
   const [desc, setDesc] = useState(placeholder);
+  const [parent] = useAutoAnimate();
 
   const decideContent = () => {
     if (isDescEdited === true) {
@@ -51,7 +53,7 @@ function Header({ person }) {
         <span className="font-bold">Email</span>
         <span>{person.email}</span>
       </p>
-      {decideContent()}
+      <div ref={parent}>{decideContent()}</div>
     </div>
   );
 }

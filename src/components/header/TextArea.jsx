@@ -8,7 +8,7 @@ TextArea.propTypes = {
 
 function TextArea({ setDesc, isDescEdited, setDescEdited }) {
   return (
-    <div>
+    <>
       <textarea
         name="desc"
         id="desc"
@@ -23,7 +23,7 @@ function TextArea({ setDesc, isDescEdited, setDescEdited }) {
       >
         Update
       </button>
-    </div>
+    </>
   );
 }
 
