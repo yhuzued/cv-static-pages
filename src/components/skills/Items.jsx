@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 Items.propTypes = {
   list: PropTypes.array.isRequired,
@@ -6,6 +7,8 @@ Items.propTypes = {
 };
 
 export default function Items({ list, setList }) {
+  const [parent] = useAutoAnimate();
+
   function deleteItem(id) {
     const newList = list.filter((l) => l.id !== id);
     setList(newList);
@@ -36,7 +39,9 @@ export default function Items({ list, setList }) {
 
   return (
     <>
-      <ul className="list-disc ml-12 mt-3">{skills}</ul>
+      <ul className="list-disc ml-12 mt-3" ref={parent}>
+        {skills}
+      </ul>
     </>
   );
 }

@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import FormExperience from "./FormExperience";
 
 export default function Experience() {
   const [showForm, setShow] = useState(false);
+  const [parent] = useAutoAnimate();
 
   const form = () => {
     if (showForm === true) {
@@ -27,7 +29,7 @@ export default function Experience() {
   return (
     <>
       {title()}
-      {form()}
+      <div ref={parent}>{form()}</div>
     </>
   );
 }
