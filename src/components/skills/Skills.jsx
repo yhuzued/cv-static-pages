@@ -24,13 +24,18 @@ export default function Skills() {
     }
   };
 
+  let items;
+  if (list.length === 0) {
+    items = <p>No skill</p>;
+  } else [(items = <Items list={list} setList={setList} />)];
+
   return (
     <>
       <Title list={list} setList={setList} skill={skill} setSkill={setSkill}>
         <AddButton setShowForm={setShowForm} />
       </Title>
       <div ref={parent}>{form()}</div>
-      <Items list={list} setList={setList} />
+      <div ref={parent}>{items}</div>
     </>
   );
 }
