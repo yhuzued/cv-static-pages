@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @media print {
-  button {
+  button,
+  form {
     display: none !important;
   }
 }
