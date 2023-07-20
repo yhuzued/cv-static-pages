@@ -38,7 +38,6 @@ export default function FormExperience({
   setCountry,
   setStartDate,
   setEndDate,
-  experience,
   setExperience,
   list,
   setList,
@@ -47,7 +46,6 @@ export default function FormExperience({
     e.preventDefault();
 
     const newExperience = {
-      ...experience,
       id: uuidv4(),
       city,
       country,
@@ -58,76 +56,95 @@ export default function FormExperience({
     };
 
     setExperience(newExperience);
-    setList([...list, experience]);
 
-    console.log(list);
+    setList([...list, newExperience]);
+    e.target.reset();
   }
 
+  const jobInformation = (
+    <div className="flex flex-col">
+      <label htmlFor="job">Job Title</label>
+      <input
+        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        type="text"
+        name="job"
+        id="job"
+        placeholder="Sr. Accountant"
+        onChange={(e) => setJobTitle(e.target.value)}
+        autoFocus
+        required
+      />
+      <label htmlFor="employer">Employer</label>
+      <input
+        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        type="text"
+        name="employer"
+        id="employer"
+        placeholder="Monster Inc."
+        onChange={(e) => setEmployer(e.target.value)}
+      />
+    </div>
+  );
+
+  const cityInformation = (
+    <div className="flex flex-col">
+      <label htmlFor="cityProvince">City Province</label>
+      <input
+        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        type="text"
+        name="cityProvince"
+        id="cityProvince"
+        placeholder="DKI Jakarta"
+        onChange={(e) => setCity(e.target.value)}
+        required
+      />
+      <label htmlFor="country">Country</label>
+      <input
+        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        type="text"
+        name="country"
+        id="country"
+        placeholder="Indonesia"
+        onChange={(e) => setCountry(e.target.value)}
+        required
+      />
+    </div>
+  );
+
+  const timeInformation = (
+    <div className="col-span-2 flex flex-col">
+      <label htmlFor="startDate">Start Date</label>
+      <input
+        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        type="month"
+        name="startDate"
+        id="startDate"
+        onChange={(e) => setStartDate(e.target.value)}
+        required
+      />
+      <label htmlFor="endDate">End Date</label>
+      <input
+        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        type="month"
+        name="endDate"
+        id="endDate"
+        onChange={(e) => setEndDate(e.target.value)}
+        required
+      />
+    </div>
+  );
+
   return (
-    <form onSubmit={handleSubmit} className="my-5">
-      <div className="grid grid-cols-2 gap-3">
-        <div className="flex flex-col">
-          <label htmlFor="job">Job Title</label>
-          <input
-            className="outline-none p-1 border-2 border-slate-700 rounded-sm"
-            type="text"
-            name="job"
-            id="job"
-            placeholder="Sr. Accountant"
-            onChange={(e) => setJobTitle(e.target.value)}
-          />
-          <label htmlFor="employer">Employer</label>
-          <input
-            className="outline-none p-1 border-2 border-slate-700 rounded-sm"
-            type="text"
-            name="employer"
-            id="employer"
-            placeholder="Monster Inc."
-            onChange={(e) => setEmployer(e.target.value)}
-          />
+    <>
+      <p>Tip: Input your first job first</p>
+      <form onSubmit={handleSubmit} className="my-5">
+        <div className="grid grid-cols-2 gap-3">
+          {jobInformation}
+          {cityInformation}
+          {timeInformation}
         </div>
-
-        <div className="flex flex-col">
-          <label htmlFor="cityProvince">City Province</label>
-          <input
-            className="outline-none p-1 border-2 border-slate-700 rounded-sm"
-            type="text"
-            name="cityProvince"
-            id="cityProvince"
-            placeholder="DKI Jakarta"
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <label htmlFor="country">Country</label>
-          <input
-            className="outline-none p-1 border-2 border-slate-700 rounded-sm"
-            type="text"
-            name="country"
-            id="country"
-            placeholder="Indonesia"
-            onChange={(e) => setCountry(e.target.value)}
-          />
-        </div>
-
-        <div className="col-span-2 flex flex-col">
-          <label htmlFor="startDate">Start Date</label>
-          <input
-            className="outline-none p-1 border-2 border-slate-700 rounded-sm"
-            type="month"
-            name="startDate"
-            id="startDate"
-            onChange={(e) => setStartDate(e.target.value)}
-          />
-          <label htmlFor="endDate">End Date</label>
-          <input
-            className="outline-none p-1 border-2 border-slate-700 rounded-sm"
-            type="month"
-            name="endDate"
-            id="endDate"
-            onChange={(e) => setEndDate(e.target.value)}
-          />
-        </div>
-      </div>
-      <SubmitButton showForm={showForm} setShow={setShow} />
-    </form>
+        <SubmitButton showForm={showForm} setShow={setShow} />
+      </form>
+    </>
   );
 }
