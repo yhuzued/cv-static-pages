@@ -15,9 +15,11 @@ export default function Experience() {
   const [experience, setExperience] = useState({});
   const [parent] = useAutoAnimate();
 
-  function handleClick(e) {
-    e.preventDefault();
-    setShow(true);
+  let description;
+  if (showForm === false) {
+    description = "Add";
+  } else {
+    description = "Close";
   }
 
   const title = (
@@ -25,9 +27,9 @@ export default function Experience() {
       <h1 className="text-2xl my-4 ">Professional Experience</h1>
       <button
         className="bg-blue-900 text-slate-100 p-1 px-2 hover:bg-blue-700 cursor-pointer"
-        onClick={handleClick}
+        onClick={() => setShow((prev) => !prev)}
       >
-        Add
+        {description}
       </button>
     </div>
   );
