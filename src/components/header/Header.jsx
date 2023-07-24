@@ -9,8 +9,7 @@ Header.propTypes = {
 };
 
 function Header({ person }) {
-  const placeholder =
-    "Motivated Sales Associate with 5 years of experience boosting sales and customer loyalty through individualized service. Resourceful expert at learning customer needs, directing to desirable merchandise and upselling to meet sales quotas. Committed to strengthening customer experiences with positivity and professionalism when answering requests and processing sales.";
+  const placeholder = "Write your professional summary here...";
   const [isDescEdited, setDescEdited] = useState(false);
   const [desc, setDesc] = useState(placeholder);
   const [parent] = useAutoAnimate();
@@ -22,6 +21,7 @@ function Header({ person }) {
           setDesc={setDesc}
           isDescEdited={isDescEdited}
           setDescEdited={setDescEdited}
+          placeholder={placeholder}
         />
       );
     }

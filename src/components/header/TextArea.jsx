@@ -4,9 +4,10 @@ TextArea.propTypes = {
   setDesc: PropTypes.func.isRequired,
   isDescEdited: PropTypes.bool.isRequired,
   setDescEdited: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
 };
 
-function TextArea({ setDesc, isDescEdited, setDescEdited }) {
+function TextArea({ setDesc, isDescEdited, setDescEdited, placeholder }) {
   return (
     <>
       <textarea
@@ -15,6 +16,7 @@ function TextArea({ setDesc, isDescEdited, setDescEdited }) {
         className="w-full h-[100px] border-2 outline-none p-2 outline-bg-slate-700 rounded-sm border-2 border-slate-400 focus:border-slate-700"
         autoFocus
         placeholder="Write description here..."
+        defaultValue={placeholder}
         onChange={(e) => setDesc(e.target.value)}
       ></textarea>
       <button
