@@ -5,6 +5,7 @@ import Skills from "./components/skills/Skills";
 import Experience from "./components/experience/Experience";
 import FormExperience from "./components/experience/FormExperience";
 import SubmitButton from "./components/experience/SubmitButton";
+import Education from "./components/education/Education";
 
 function App() {
   const [name, setName] = useState("");
@@ -58,6 +59,7 @@ function App() {
             <FormExperience />
             <SubmitButton />
           </Experience>
+          <Education />
         </section>
       </main>
     </>
