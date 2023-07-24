@@ -8,7 +8,7 @@ FormSkills.propTypes = {
   setShowForm: PropTypes.func.isRequired,
 };
 
-export default function FormSkills({ skill, setList, setSkill, setShowForm }) {
+export default function FormSkills({ skill, setList, setSkill }) {
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -20,11 +20,6 @@ export default function FormSkills({ skill, setList, setSkill, setShowForm }) {
 
     e.target.reset();
     setSkill({});
-  }
-
-  function close(e) {
-    e.preventDefault();
-    setShowForm(false);
   }
 
   return (
@@ -44,12 +39,6 @@ export default function FormSkills({ skill, setList, setSkill, setShowForm }) {
           className="bg-teal-700 text-slate-100 px-2 py-1 hover:bg-teal-500"
         >
           Save
-        </button>
-        <button
-          className="bg-red-700 text-slate-100 px-2 py-1 hover:bg-red-500"
-          onClick={close}
-        >
-          Close
         </button>
       </div>
     </form>

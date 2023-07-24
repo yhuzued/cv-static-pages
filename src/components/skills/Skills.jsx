@@ -32,7 +32,7 @@ export default function Skills() {
   return (
     <>
       <Title list={list} setList={setList} skill={skill} setSkill={setSkill}>
-        <AddButton setShowForm={setShowForm} />
+        <AddButton showForm={showForm} setShowForm={setShowForm} />
       </Title>
       <div ref={parent}>{form()}</div>
       <div ref={parent}>{items}</div>
