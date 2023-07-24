@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import plus from "../../assets/plus.svg";
+import close from "../../assets/close.svg";
 
 AddButton.propTypes = {
   setShowForm: PropTypes.func.isRequired,
@@ -6,19 +8,12 @@ AddButton.propTypes = {
 };
 
 export default function AddButton({ showForm, setShowForm }) {
-  let description;
+  let icon;
   if (showForm === false) {
-    description = "Add";
+    icon = <img src={plus} alt="plus" className="w-8 h-12" />;
   } else {
-    description = "Close";
+    icon = <img src={close} alt="close" className="w-8 h-12" />;
   }
 
-  return (
-    <button
-      className="bg-blue-900 text-slate-100 p-1 px-2 hover:bg-blue-700 cursor-pointer"
-      onClick={() => setShowForm((prev) => !prev)}
-    >
-      {description}
-    </button>
-  );
+  return <button onClick={() => setShowForm((prev) => !prev)}>{icon}</button>;
 }

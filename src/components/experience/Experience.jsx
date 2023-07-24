@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import FormExperience from "./FormExperience";
 import Items from "./Items";
+import plus from "../../assets/plus.svg";
+import close from "../../assets/close.svg";
 
 export default function Experience() {
   const [showForm, setShow] = useState(false);
@@ -15,22 +17,17 @@ export default function Experience() {
   const [experience, setExperience] = useState({});
   const [parent] = useAutoAnimate();
 
-  let description;
+  let icon;
   if (showForm === false) {
-    description = "Add";
+    icon = <img src={plus} alt="plus" className="w-8 h-12" />;
   } else {
-    description = "Close";
+    icon = <img src={close} alt="close" className="w-8 h-12" />;
   }
 
   const title = (
     <div className="flex justify-between w-full border-b-2 items-center">
       <h1 className="text-2xl my-4 ">Professional Experience</h1>
-      <button
-        className="bg-blue-900 text-slate-100 p-1 px-2 hover:bg-blue-700 cursor-pointer"
-        onClick={() => setShow((prev) => !prev)}
-      >
-        {description}
-      </button>
+      <button onClick={() => setShow((prev) => !prev)}>{icon}</button>
     </div>
   );
 

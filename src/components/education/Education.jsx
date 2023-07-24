@@ -3,6 +3,8 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { EducationContext } from "./Context";
 import Info from "./Info";
 import Items from "./Items";
+import plus from "../../assets/plus.svg";
+import close from "../../assets/close.svg";
 
 export default function Education() {
   const [showInfo, setInfo] = useState(false);
@@ -20,18 +22,18 @@ export default function Education() {
     console.log(list);
   });
 
-  let add = showInfo === true ? "Close" : "Add";
+  let icon;
+  if (showInfo === false) {
+    icon = <img src={plus} alt="plus" className="w-8 h-12" />;
+  } else {
+    icon = <img src={close} alt="close" className="w-8 h-12" />;
+  }
 
   return (
     <>
       <div className="flex justify-between w-full border-b-2 items-center">
         <h2 className="text-2xl my-4 ">Education</h2>
-        <button
-          className="bg-blue-900 text-slate-100 px-2 py-1 rounded-sm hover:bg-blue-700"
-          onClick={() => setInfo((prev) => !prev)}
-        >
-          {add}
-        </button>
+        <button onClick={() => setInfo((prev) => !prev)}>{icon}</button>
       </div>
       <EducationContext.Provider
         value={{
