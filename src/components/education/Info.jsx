@@ -7,7 +7,7 @@ Info.propTypes = {
 
 export default function Info({ showInfo }) {
   if (showInfo === false) {
-    return <p>No education</p>;
+    return;
   }
 
   return (

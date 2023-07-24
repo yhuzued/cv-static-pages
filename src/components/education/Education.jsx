@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Info from "./Info";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { EducationContext } from "./Context";
+import Info from "./Info";
 import Items from "./Items";
 
 export default function Education() {
@@ -13,6 +14,7 @@ export default function Education() {
   const [dateEnd, setDateEnd] = useState("");
   const [list, setList] = useState([]);
   const [education, setEducation] = useState({});
+  const [parent] = useAutoAnimate();
 
   useEffect(() => {
     console.log(list);
@@ -23,7 +25,7 @@ export default function Education() {
   return (
     <>
       <div className="flex justify-between w-full border-b-2 items-center">
-        <h2 className="text-2xl my-4 ">Skills</h2>
+        <h2 className="text-2xl my-4 ">Education</h2>
         <button
           className="bg-blue-900 text-slate-100 px-2 py-1 rounded-sm hover:bg-blue-700"
           onClick={() => setInfo((prev) => !prev)}
@@ -50,8 +52,10 @@ export default function Education() {
           setList,
         }}
       >
-        <Info showInfo={showInfo} />
-        <Items list={list} />
+        <div ref={parent}>
+          <Info showInfo={showInfo} list={list} />
+        </div>
+        <Items list={list} setList={setList} />
       </EducationContext.Provider>
     </>
   );

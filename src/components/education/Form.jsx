@@ -23,6 +23,7 @@ export default function Education() {
   function handleSubmit(e) {
     e.preventDefault();
     const id = uuidv4();
+
     const newEducation = {
       id,
       school,
@@ -35,7 +36,7 @@ export default function Education() {
 
     setEducation(newEducation);
 
-    setList((prev) => [...prev, newEducation]);
+    setList((list) => [...list, newEducation]);
     e.target.reset();
   }
 
@@ -48,6 +49,7 @@ export default function Education() {
         name="schoolName"
         id="schoolName"
         onChange={(e) => setSchool(e.target.value)}
+        required
       />
       <label htmlFor="schoolLocation">School Location</label>
       <input
@@ -56,6 +58,7 @@ export default function Education() {
         name="schoolLocation"
         id="schoolLocation"
         onChange={(e) => setLocation(e.target.value)}
+        required
       />
       <label htmlFor="degree">Degree</label>
       <input
@@ -64,6 +67,7 @@ export default function Education() {
         name="degree"
         id="degree"
         onChange={(e) => setDegree(e.target.value)}
+        required
       />
       <label htmlFor="study">Study</label>
       <input
@@ -72,6 +76,7 @@ export default function Education() {
         name="study"
         id="study"
         onChange={(e) => setStudy(e.target.value)}
+        required
       />
       <label htmlFor="startSchool">Date Start School</label>
       <input
@@ -80,6 +85,7 @@ export default function Education() {
         name="startSchool"
         id="startSchool"
         onChange={(e) => setDateStart(e.target.value)}
+        required
       />
       <label htmlFor="endSchool">Date End School</label>
       <input
@@ -88,6 +94,7 @@ export default function Education() {
         name="endSchool"
         id="endSchool"
         onChange={(e) => setDateEnd(e.target.value)}
+        required
       />
       <button
         type="submit"

@@ -18,7 +18,7 @@ export default function Items({ list, setList }) {
 
   const dateInformation = (l) => {
     return (
-      <div className="w-1/2 text-[17px] border-r-2">
+      <div className="w-1/4 text-[17px] border-r-2">
         <p className="drop-shadow-lg font-medium">
           {convertDate(l.startDate)} -
         </p>
