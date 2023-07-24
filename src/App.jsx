@@ -21,7 +21,7 @@ function App() {
     return Object.keys(obj).length === 0;
   }
 
-  const form = () => {
+  const cv = () => {
     if (isEmpty(person)) {
       return (
         <Form
@@ -43,6 +43,18 @@ function App() {
         />
       );
     }
+
+    return (
+      <>
+        <Header person={person} />
+        <Skills />
+        <Experience>
+          <FormExperience />
+          <SubmitButton />
+        </Experience>
+        <Education />
+      </>
+    );
   };
 
   return (
@@ -52,14 +64,7 @@ function App() {
           CV Generator
         </h1>
         <section className="p-8 bg-white p-3 rounded-md drop-shado-md">
-          {form()}
-          <Header person={person} />
-          <Skills />
-          <Experience>
-            <FormExperience />
-            <SubmitButton />
-          </Experience>
-          <Education />
+          {cv()}
         </section>
       </main>
     </>
