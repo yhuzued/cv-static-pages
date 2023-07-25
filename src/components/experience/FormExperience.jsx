@@ -65,7 +65,7 @@ export default function FormExperience({
     <div className="flex flex-col">
       <label htmlFor="job">Job Title</label>
       <input
-        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        className="outline-none border-2 p-2 rounded-sm border-slate-500"
         type="text"
         name="job"
         id="job"
@@ -76,7 +76,7 @@ export default function FormExperience({
       />
       <label htmlFor="employer">Employer</label>
       <input
-        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        className="outline-none border-2 p-2 rounded-sm border-slate-500"
         type="text"
         name="employer"
         id="employer"
@@ -90,7 +90,7 @@ export default function FormExperience({
     <div className="flex flex-col">
       <label htmlFor="cityProvince">City Province</label>
       <input
-        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        className="outline-none border-2 p-2 rounded-sm border-slate-500"
         type="text"
         name="cityProvince"
         id="cityProvince"
@@ -100,7 +100,7 @@ export default function FormExperience({
       />
       <label htmlFor="country">Country</label>
       <input
-        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        className="outline-none border-2 p-2 rounded-sm border-slate-500"
         type="text"
         name="country"
         id="country"
@@ -115,7 +115,7 @@ export default function FormExperience({
     <div className="col-span-2 flex flex-col">
       <label htmlFor="startDate">Start Date</label>
       <input
-        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        className="outline-none border-2 p-2 rounded-sm border-slate-500"
         type="month"
         name="startDate"
         id="startDate"
@@ -124,7 +124,7 @@ export default function FormExperience({
       />
       <label htmlFor="endDate">End Date</label>
       <input
-        className="outline-none p-1 border-2 border-slate-700 rounded-sm"
+        className="outline-none border-2 p-2 rounded-sm border-slate-500"
         type="month"
         name="endDate"
         id="endDate"
