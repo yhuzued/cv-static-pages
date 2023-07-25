@@ -12,6 +12,9 @@ export default function Info({ showInfo }) {
 
   return (
     <>
+      <p className="bg-yellow-200 text-slate-900 p-2 my-3 rounded-sm">
+        Input your education chronologically.
+      </p>
       <Form />
     </>
   );

@@ -35,9 +35,6 @@ export default function Education() {
         <h2 className="text-2xl my-4 ">Education</h2>
         <button onClick={() => setInfo((prev) => !prev)}>{icon}</button>
       </div>
-      <p className="bg-yellow-200 text-slate-900 p-2 my-3 rounded-sm">
-        Input your education chronologically.
-      </p>
       <EducationContext.Provider
         value={{
           school,

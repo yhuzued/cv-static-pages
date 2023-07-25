@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import PropTypes from "prop-types";
 import InputAchievement from "./InputAchievement";
+import trash from "../../assets/trash.svg";
 
 JobInformation.propTypes = {
   info: PropTypes.object,
@@ -19,13 +20,10 @@ export default function JobInformation({ info }) {
 
   const displayList = achvList.map((l) => {
     return (
-      <div key={l.id} className="flex justify-between items-center">
+      <div key={l.id} className="flex gap-5 items-center my-2">
         <li>{l.achievement}</li>
-        <button
-          onClick={() => deleteAchievement(l.id)}
-          className="bg-red-500 hover:bg-red-700 text-slate-100 px-2 py-1 rounded-sm mb-1"
-        >
-          Delete
+        <button onClick={() => deleteAchievement(l.id)}>
+          <img src={trash} alt="trash" className="w-6 h-6" />
         </button>
       </div>
     );
@@ -44,7 +42,7 @@ export default function JobInformation({ info }) {
           setAchievement={setAchievement}
         />
       </div>
-      <ul className="list-disc mx-5" ref={parent}>
+      <ul className="list-disc mx-5 mt-2" ref={parent}>
         {displayList}
       </ul>
     </div>

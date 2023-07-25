@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import convertDate from "../../convertDate";
 import JobInformation from "./JobInformation";
+import trash from "../../assets/trash.svg";
 
 Items.propTypes = {
   list: PropTypes.array.isRequired,
@@ -30,11 +31,8 @@ export default function Items({ list, setList }) {
   const deleteButton = (l) => {
     return (
       <>
-        <button
-          className="bg-red-500 hover:bg-red-700 text-slate-100 px-2 py-1 rounded-sm"
-          onClick={() => deleteExperience(l.id)}
-        >
-          Close
+        <button onClick={() => deleteExperience(l.id)}>
+          <img src={trash} alt="close" className="w-10 h-10" />
         </button>
       </>
     );
