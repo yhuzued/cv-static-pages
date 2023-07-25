@@ -136,7 +136,9 @@ export default function FormExperience({
 
   return (
     <>
-      <p>Tip: Input your first job first</p>
+      <p className="bg-yellow-200 text-slate-900 p-2 my-3 rounded-sm">
+        Input your professional experience chronologically.
+      </p>
       <form onSubmit={handleSubmit} className="my-5">
         <div className="grid grid-cols-2 gap-3">
           {jobInformation}
