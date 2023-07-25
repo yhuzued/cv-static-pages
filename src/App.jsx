@@ -17,14 +17,13 @@ function App() {
   const [profession, setProfession] = useState("");
   const [person, setPerson] = useState({});
 
-  function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
-  }
+  const [isEditForm, setEditForm] = useState(false);
 
   const cv = () => {
-    if (isEmpty(person)) {
+    if (!isEditForm) {
       return (
         <Form
+          person={person}
           name={name}
           email={email}
           phone={phone}
@@ -40,13 +39,14 @@ function App() {
           setCity={setCity}
           setCountry={setCountry}
           setPostal={setPostal}
+          setEditForm={setEditForm}
         />
       );
     }
 
     return (
       <>
-        <Header person={person} />
+        <Header person={person} setEditForm={setEditForm} />
         <Skills />
         <Experience>
           <FormExperience />

@@ -2,11 +2,17 @@ import PropTypes from "prop-types";
 
 FormProfession.propTypes = {
   setProfession: PropTypes.func.isRequired,
+  profession: PropTypes.string,
 };
 
-function FormProfession({ setProfession }) {
+function FormProfession({ profession, setProfession }) {
   function handleProfession(e) {
     setProfession(e.target.value);
+  }
+
+  let editProfession;
+  if (!(profession === "")) {
+    editProfession = profession;
   }
 
   return (
@@ -23,6 +29,7 @@ function FormProfession({ setProfession }) {
         placeholder="Sr. Accountant"
         required
         onChange={handleProfession}
+        defaultValue={editProfession}
       />
     </div>
   );

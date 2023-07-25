@@ -2,11 +2,17 @@ import PropTypes from "prop-types";
 
 FormName.propTypes = {
   setName: PropTypes.func.isRequired,
+  name: PropTypes.string,
 };
 
-function FormName({ setName }) {
+function FormName({ name, setName }) {
   function handleName(e) {
     setName(e.target.value);
+  }
+
+  let editName;
+  if (!(name === "")) {
+    editName = name;
   }
 
   return (
@@ -23,6 +29,7 @@ function FormName({ setName }) {
         required
         onChange={handleName}
         placeholder="John Doe"
+        defaultValue={editName}
       />
     </div>
   );

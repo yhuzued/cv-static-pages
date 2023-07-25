@@ -2,11 +2,17 @@ import PropTypes from "prop-types";
 
 FormCity.propTypes = {
   setCity: PropTypes.func.isRequired,
+  city: PropTypes.string,
 };
 
-function FormCity({ setCity }) {
+function FormCity({ city, setCity }) {
   function handleCity(e) {
     setCity(e.target.value);
+  }
+
+  let editCity;
+  if (!(city === "")) {
+    editCity = city;
   }
 
   return (
@@ -23,6 +29,7 @@ function FormCity({ setCity }) {
         minLength={5}
         onChange={handleCity}
         required
+        defaultValue={editCity}
       />
     </div>
   );

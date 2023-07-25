@@ -2,11 +2,17 @@ import PropTypes from "prop-types";
 
 FormPostal.propTypes = {
   setPostal: PropTypes.func.isRequired,
+  postal: PropTypes.string,
 };
 
-function FormPostal({ setPostal }) {
+function FormPostal({ postal, setPostal }) {
   function handlePostal(e) {
     setPostal(e.target.value);
+  }
+
+  let editPostal;
+  if (!(postal === "")) {
+    editPostal = postal;
   }
 
   return (
@@ -23,6 +29,7 @@ function FormPostal({ setPostal }) {
         placeholder="17865"
         required
         onChange={handlePostal}
+        defaultValue={editPostal}
       />
     </div>
   );

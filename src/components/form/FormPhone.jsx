@@ -2,11 +2,17 @@ import PropTypes from "prop-types";
 
 FormPhone.propTypes = {
   setPhone: PropTypes.func.isRequired,
+  phone: PropTypes.string,
 };
 
-function FormPhone({ setPhone }) {
+function FormPhone({ phone, setPhone }) {
   function handlePhone(e) {
     setPhone(e.target.value);
+  }
+
+  let editPhone;
+  if (!(phone === "")) {
+    editPhone = phone;
   }
 
   return (
@@ -22,6 +28,7 @@ function FormPhone({ setPhone }) {
         placeholder="+62 812 3456 7890"
         required
         onChange={handlePhone}
+        defaultValue={editPhone}
       />
     </div>
   );

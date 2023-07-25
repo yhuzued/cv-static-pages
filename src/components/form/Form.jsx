@@ -25,6 +25,7 @@ Form.propTypes = {
   setCity: PropTypes.func.isRequired,
   setCountry: PropTypes.func.isRequired,
   setPostal: PropTypes.func.isRequired,
+  setEditForm: PropTypes.func,
 };
 
 export default function Form({
@@ -43,6 +44,7 @@ export default function Form({
   setCountry,
   postal,
   setPostal,
+  setEditForm,
 }) {
   function handleSubmit(e) {
     e.preventDefault();
@@ -52,6 +54,7 @@ export default function Form({
     }
 
     setPerson({ name, email, phone, profession, city, country, postal });
+    setEditForm((prev) => !prev);
   }
 
   return (
@@ -59,19 +62,22 @@ export default function Form({
       <form method="get" action="/" onSubmit={handleSubmit}>
         <div className="grid grid-cols-2">
           <div className="col-grid-1">
-            <FormName setName={setName} />
-            <FormProfession setProfession={setProfession} />
+            <FormName name={name} setName={setName} />
+            <FormProfession
+              profession={profession}
+              setProfession={setProfession}
+            />
           </div>
 
           <div className="col-grid-1">
-            <FormEmail setEmail={setEmail} />
-            <FormPhone setPhone={setPhone} />
+            <FormEmail email={email} setEmail={setEmail} />
+            <FormPhone phone={phone} setPhone={setPhone} />
           </div>
 
           <div className="col-span-2">
-            <FormCity setCity={setCity} />
-            <FormCountry setCountry={setCountry} />
-            <FormPostal setPostal={setPostal} />
+            <FormCity city={city} setCity={setCity} />
+            <FormCountry country={country} setCountry={setCountry} />
+            <FormPostal postal={postal} setPostal={setPostal} />
             <CreateButton />
           </div>
         </div>

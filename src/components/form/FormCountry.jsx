@@ -2,11 +2,17 @@ import PropTypes from "prop-types";
 
 FromCountry.propTypes = {
   setCountry: PropTypes.func.isRequired,
+  country: PropTypes.string,
 };
 
-function FromCountry({ setCountry }) {
+function FromCountry({ country, setCountry }) {
   function handleCountry(e) {
     setCountry(e.target.value);
+  }
+
+  let editCountry;
+  if (!(country === "")) {
+    editCountry = country;
   }
 
   return (
@@ -23,6 +29,7 @@ function FromCountry({ setCountry }) {
         minLength={5}
         required
         onChange={handleCountry}
+        defaultValue={editCountry}
       />
     </div>
   );
