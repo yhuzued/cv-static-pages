@@ -6,6 +6,7 @@ import Experience from "./components/experience/Experience";
 import FormExperience from "./components/experience/FormExperience";
 import SubmitButton from "./components/experience/SubmitButton";
 import Education from "./components/education/Education";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 function App() {
   const [name, setName] = useState("");
@@ -18,6 +19,7 @@ function App() {
   const [person, setPerson] = useState({});
 
   const [isEditForm, setEditForm] = useState(false);
+  const [parent] = useAutoAnimate();
 
   const cv = () => {
     if (!isEditForm) {
@@ -63,7 +65,10 @@ function App() {
         <h1 className="print:hidden m-3 text-center text-xl font-medium text-slate-100">
           CV Generator
         </h1>
-        <section className="p-8 bg-white p-3 rounded-md drop-shado-md">
+        <section
+          ref={parent}
+          className="p-8 bg-white p-3 rounded-md drop-shado-md"
+        >
           {cv()}
         </section>
       </main>
