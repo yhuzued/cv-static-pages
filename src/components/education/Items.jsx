@@ -29,10 +29,10 @@ export default function Items({ list, setList }) {
 
   const school = (l) => (
     <div className="w-full flex flex-col">
-      <h2 className="text-xl font-medium">
+      <h2 className="text-lg font-medium drop-shadow-md">
         {l.degree}: {l.study}
       </h2>
-      <p className="text-lg italic">
+      <p className="italic drop-shadow-md">
         {l.school} - {l.location}
       </p>
     </div>
