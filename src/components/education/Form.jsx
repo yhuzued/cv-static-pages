@@ -82,7 +82,7 @@ export default function Education() {
         onChange={(e) => setStudy(e.target.value)}
         required
       />
-      <label htmlFor="startSchool">Date Start School</label>
+      <label htmlFor="startSchool">Start School</label>
       <input
         className="outline-none border-2 p-2 rounded-sm border-slate-500"
         type="month"
@@ -91,7 +91,7 @@ export default function Education() {
         onChange={(e) => setDateStart(e.target.value)}
         required
       />
-      <label htmlFor="endSchool">Date End School</label>
+      <label htmlFor="endSchool">End School</label>
       <input
         className="outline-none border-2 p-2 rounded-sm border-slate-500"
         type="month"
