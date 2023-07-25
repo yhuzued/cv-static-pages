@@ -59,8 +59,8 @@ function App() {
 
   return (
     <>
-      <main className="m-5">
-        <h1 className="m-3 text-center text-xl font-medium text-slate-100">
+      <main className="m-5 lg:w-2/3 print:w-full">
+        <h1 className="print:hidden m-3 text-center text-xl font-medium text-slate-100">
           CV Generator
         </h1>
         <section className="p-8 bg-white p-3 rounded-md drop-shado-md">
