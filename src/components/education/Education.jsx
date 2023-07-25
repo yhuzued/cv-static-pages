@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { EducationContext } from "./Context";
 import Info from "./Info";
@@ -17,10 +17,6 @@ export default function Education() {
   const [list, setList] = useState([]);
   const [education, setEducation] = useState({});
   const [parent] = useAutoAnimate();
-
-  useEffect(() => {
-    console.log(list);
-  });
 
   let icon;
   if (showInfo === false) {
