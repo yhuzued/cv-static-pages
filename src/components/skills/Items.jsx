@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import trash from "../../assets/trash.svg";
 
 Items.propTypes = {
   list: PropTypes.array.isRequired,
@@ -20,18 +21,14 @@ export default function Items({ list, setList }) {
 
   const button = (id) => {
     return (
-      <button
-        id={id}
-        className="bg-red-500 px-2 py-1 text-slate-100 rounded-sm hover:bg-red-700"
-        onClick={() => deleteItem(id)}
-      >
-        Delete
+      <button id={id} onClick={() => deleteItem(id)}>
+        <img src={trash} alt="trash-icon" className="w-6 h-6" />
       </button>
     );
   };
 
   const skills = list.map((l) => (
-    <div key={l.id} className="flex gap-5 items-center">
+    <div key={l.id} className="flex gap-1 items-center">
       {items(l.title)}
       {button(l.id)}
     </div>
